@@ -1,41 +1,15 @@
-Entire Game on One Screen
+Okay, it works! How to build it?
 
-Gang warfare
+Do I use a MVC approach.  Because it is more of an "App" than a game.
+There is not a lot of movement.  If each game object is a DIV, then I get
+a lot of phone compatibility for free (ie touch).
 
-	- Recruit youth or Upgrade street
-	- choose what streets to place them on
-	- Grid based
-	- Attack opposing gangs
-	- Sell drugs to pay for upgrades
+I'm not thinking of using CSS really.  But this isn't a performance intensive thing.
 
-	Upgrade street,
+Also, I may want the AI to be written server side, so I can swap it out
 
-		- damage
-		- health
-		- drug production
+Moving things generally, is much easier on canvas.
 
-	Gang members experience in different areas increases with each turn they spend
-	in a particular area.
+I'm going with canvas, because why not.
 
-	Goal:
-
-		- Wipe out gangs.
-
-
-	Advantages:
-
-	- Grid based, collision-less
-	- Simpler to program AI (less movement)
-	- Systemic, easier to tweak, one level can stay interesting
-
-
-Paper Scissors Rock in Space
-
-Ship vs Ship
-
-Charge, Shield, Shoot
-
-Shoot -> Charge : Take Damage
-Shield -> Shoot : Take Damage
-Shield -> Charge : Use Charge, while enemy charges
-Charge: Charge : Missed an opportunity to shoot
+Should I make a node webkit version with multiplayer?

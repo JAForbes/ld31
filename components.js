@@ -1,0 +1,3 @@
+E({
+  Canvas: {can:can}
+})
