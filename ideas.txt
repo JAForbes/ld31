@@ -13,3 +13,19 @@ Moving things generally, is much easier on canvas.
 I'm going with canvas, because why not.
 
 Should I make a node webkit version with multiplayer?
+
+If this is multiplayer, how will it work?  Where does each code go?
+
+
+If this is going to be multiplayer.  The clients should be dumb.  They just receive the other ships state.
+
+
+//client
+fire.onclick = function(){
+	socket.emit('move', 'F')
+}
+
+//client view
+socket.on('move', function(newMe,newOther){
+  newMe.health > me.health && damageAnimation()
+})
