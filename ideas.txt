@@ -1,0 +1,103 @@
+Entire Game on One Screen
+
+- Top Down Stealth Game
+
+	- Multiple rooms.
+
+	- Avoid cameras.
+	- Cling to walls
+	- Avoid patrols
+	- Steal items
+	- Turn off lights
+
+	- Have to create lots of puzzles, too hard too tweak and too hard to add content
+
+Blockaid:
+
+	- Space Fight turn based, three types of ship
+		Military:
+			- fighters, small damage but lower change of hit, short range, small line of sight, one turn to dispatch
+			- cruisers,
+				- medium range, medium line of sight,  higher chance of damage, but more health, medium production
+				- increase number of turns
+		Trade:
+			- freighter, medium hull, higher change of damage, medium line of sight, medium cargo
+			- shuttle, small hull, small change of hit, small cargo
+		Medical:
+			- Frigate
+			- Shuttle
+
+		Beacon:
+			- Line of sight
+			- 1 turn
+
+		Diplomacy:
+			Envoy:
+				- Invincible
+				- Expensive
+				- Remove oppositions turn
+
+
+
+	Goal
+	 - get supplies to your planet (to build things)
+	 - destroy opponent
+
+	 - Rules are complicated, what is the play by play?
+
+	 	Choose to build a particular ship. (production turn)
+	 	Choose when ships are defending / attacking (strategy turn)
+	 	Opposing ships in range attack eachother.
+
+Gang warfare: Home Advantage
+
+	- Recruit youth or Upgrade street
+	- choose what streets to place them on
+	- Grid based
+	- Attack opposing gangs
+	- Sell drugs to pay for upgrades
+
+	Upgrade street,
+
+		- damage
+		- health
+		- drug production
+
+	Gang members experience in different areas increases with each turn they spend
+	in a particular area.
+
+	Goal:
+
+		- Wipe out gangs.
+
+
+	Advantages:
+
+	- Grid based, collision-less
+	- Simpler to program AI (less movement)
+	- Systemic, easier to tweak, one level can stay interesting
+
+
+Treachery: Chinese Whispers
+
+High level goals.  Collect wood, build a castle, gather an army etc
+
+Arrange lines of people that you trust to complete a particular goal.
+
+Enemy can spy on your town to identify who to bribe/threaten particular chains, and change their output.
+
+Effectiveness of bribe/threat is based on:
+
+	- How well you treated that person
+	- How long you have known that person
+	- Desperation of that unit
+
+
+Play by play:
+
+	- Your spy reports, the enemy is building a catapult.
+	- You want to train archers, to destroy the catapult.
+
+	Foreman -> Workers -> Build Archery -> Foreman -> Archery complete
+
+	Not sure...
