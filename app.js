@@ -1,6 +1,4 @@
-currentSystems = ['resizeCanvas']
-loop = function(){
-	systems.call(currentSystems)
-	requestAnimationFrame(loop)
-}
-loop()
+game = {}
+game.View = Backbone.View.extend({
+	
+})

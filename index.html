@@ -2,14 +2,35 @@
 body {
   margin: 0;
   background-color: #222;
+  color: white;
+  font-family: Helvetica;
+}
+.action {
+  font-size: 2em;
+  cursor: default;
+  user-select: none;
+}
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>
-<canvas id='can'>
+
+
+
+<div class='unselectable'>
+  <p class='action' id='fire'>Fire</p>
+  <p class='action' id='shield'>Shield</p>
+  <p class='action' id='charge'>Charge</p>
+</div>
 
 <script src='node_modules/lodash/dist/lodash.min.js'></script>
+<script src='node_modules/jquery/dist/jquery.min.js'></script>
+<script src='node_modules/backbone/backbone-min.js'></script>
 <script src='node_modules/ramda/ramda.min.js'></script>
-<script src='node_modules/e/e.js'></script>
 
-<script src='systems.js'></script>
-<script src='components.js'></script>
 <script src='app.js'></script>
