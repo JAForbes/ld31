@@ -59,6 +59,6 @@ Views.World = Backbone.View.extend({
 
     var stats = new Views.Stats({model: models.ship2})
     this.$el.append(stats.el)
-    $(stats.el).addClass('SE').css({ width: views.ship1.el.width , 'textAlign': 'center', height: '100px'})
+    $(stats.el).addClass('NE').css({ width: views.ship1.el.width , 'textAlign': 'center', height: '100px'})
   }
 })

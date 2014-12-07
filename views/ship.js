@@ -6,18 +6,23 @@ Views.Ship = Backbone.View.extend({
   initialize: function(options){
     this.loadImages()
 
-    setInterval( _.bind(function(){
-      if( this.shakes > 0 ){
-        console.log
-        this.shake()
-        this.shakes--;
-      }
-    },this),10)
+
     this.shakes = 0;
     this.model.on('change:damaged', function(model){
       if( model.damaged ) { this.shakes = 40 }
     },this)
     this.on('imagesLoaded',function(){ this.render() },this)
+  },
+
+  update: function(i){
+
+
+    if( this.shakes > 0  && i % 1 == 0){
+      this.shake()
+      this.shakes--;
+    } else {
+      this.render([0,_.cycle(400)*40])
+    }
   },
 
   loadImages: function(){
