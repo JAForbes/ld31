@@ -65,7 +65,7 @@ Models.Ship = Backbone.Model.extend({
     this.damaged = false;
 
     if(other.state == 'shoot' && this.state == 'shield') {
-      this.charge++
+      this.energy++
     } else if (other.state == 'shoot' && this.state != 'shield'){
       this.health--
       this.damaged = true;
