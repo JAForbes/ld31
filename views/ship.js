@@ -14,7 +14,7 @@ Views.Ship = Backbone.View.extend({
 
   loadImages: function(){
 
-    var images = ['idle','shoot','shield','charge'];
+    var images = ['idle','shoot','shield','charge','damage'];
 
     imagesLoaded = _.after(images.length, _.bind(this.trigger,this,'imagesLoaded') )
 
@@ -31,9 +31,9 @@ Views.Ship = Backbone.View.extend({
   render: function(state){
     var con = this.el.getContext('2d')
 
-    this.el.width = this.images.idle.width
-    this.el.height = this.images.idle.height
-
+    this.el.width = this.images.idle.width/4
+    this.el.height = this.images.idle.height/4
+    con.scale(0.25,0.25)
     if( state == 'idle' ){
       con.drawImage(this.images.idle,0,0 )
     } else if ( state == 'shield' ) {
@@ -45,6 +45,9 @@ Views.Ship = Backbone.View.extend({
     } else if ( state == 'shoot') {
       con.drawImage( this.images.idle,0,0 )
       con.drawImage( this.images.shoot,0,0 )
+    } else if ( state == 'damage') {
+      con.drawImage( this.images.idle,0,0 )
+      con.drawImage( this.images.damage,0,0 )
     }
 
   }
