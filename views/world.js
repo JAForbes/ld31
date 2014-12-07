@@ -9,6 +9,15 @@ Views.World = Backbone.View.extend({
     views.ship1 = new Views.Ship({ model : models.ship2 , className: 'NE' }).on('imagesLoaded',this.allImagesLoaded,this)
     this.$el.append( views.ship1.el )
     this.$el.append( views.ship2.el )
+
+    views.choices = new Views.Choices()
+
+    views.choices.on('choice',function(text){
+      models.ship1.set('state',text)
+    })
+
+
+    this.$el.append(views.choices.el)
   },
 
   allImagesLoaded: _.after(numberOfShips = 2,function(){
