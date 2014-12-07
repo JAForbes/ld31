@@ -71,7 +71,6 @@ Models.Ship = Backbone.Model.extend({
       this.damaged = true;
     }
 
-
     if(this.state == 'shield'){
       this.energy > 0 && this.energy--
     }
@@ -82,9 +81,12 @@ Models.Ship = Backbone.Model.extend({
       this.energy++
     }
 
-
     if( this.health < 0) {
       this.trigger('dead')
     }
+  },
+
+  valueOf: function(){
+    return 'energy: ' + this.energy + ' health: ' + this.health
   }
 })

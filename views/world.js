@@ -51,5 +51,14 @@ Views.World = Backbone.View.extend({
   render: function(){
     models.ship1.set('state','idle')
     models.ship2.set('state','idle')
+
+    //todo move somewhere else
+    var stats = new Views.Stats({model: models.ship1})
+    this.$el.append(stats.el)
+    $(stats.el).addClass('SW').css({ width: views.ship1.el.width , 'textAlign': 'center' , height: '100px' })
+
+    var stats = new Views.Stats({model: models.ship2})
+    this.$el.append(stats.el)
+    $(stats.el).addClass('SE').css({ width: views.ship1.el.width , 'textAlign': 'center', height: '100px'})
   }
 })
