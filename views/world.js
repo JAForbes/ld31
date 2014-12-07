@@ -11,10 +11,12 @@ Views.World = Backbone.View.extend({
     this.$el.append( views.ship1.el )
     this.$el.append( views.ship2.el )
 
+
     views.choices = new Views.Choices({ model: models.ship1 })
 
     //~game loop
     views.choices.on('choice',function(choice,text){
+
       models.ship1.attributes.state = 'idle'
       models.ship1.set('state',text)
 
@@ -22,10 +24,17 @@ Views.World = Backbone.View.extend({
       models.ship1.stateChange()
       models.ship2.stateChange()
 
+      views.ship1.render()
+      views.ship2.render()
     })
 
 
     this.$el.append(views.choices.el)
+    this.$el.css({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      position: 'absolute'
+    })
 
     models.ship1.on('dead', function(){ console.log('Computer Wins') })
     models.ship2.on('dead', function(){ console.log('You Win') })

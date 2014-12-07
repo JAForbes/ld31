@@ -1,14 +1,16 @@
 Views.Choices = Backbone.View.extend({
+  className: 'choices S',
   initialize: function(options){
+    this.$el.css({ width: '500px', height: '100px'})
     var hasEnergy = function() {
       return options.model.energy > 0
     }
     var always = function() { return true }
 
     this.subViews = [
-      this.charge = new Views.Choice({ model: options.model, bus: this, text: 'charge' , predicate: always }),
-      this.shield = new Views.Choice({ model: options.model, bus: this, text: 'shield' , predicate: hasEnergy }),
-      this.shoot = new Views.Choice({ model: options.model, bus: this, text: 'shoot', predicate: hasEnergy })
+      this.charge = new Views.Choice({ className: 'choice W', model: options.model, bus: this, text: 'charge' , predicate: always }),
+      this.shield = new Views.Choice({ className: 'choice E', model: options.model, bus: this, text: 'shield' , predicate: hasEnergy }),
+      this.shoot = new Views.Choice({ className: 'choice X',model: options.model, bus: this, text: 'shoot', predicate: hasEnergy })
     ]
     _.map(this.subViews, function(view){ this.$el.append(view.el)}, this )
 
@@ -22,7 +24,7 @@ Views.Choice = Backbone.View.extend({
   initialize: function(options){
     this.el.innerText = options.text;
     this.enabled = true;
-
+    this.$el.css({ width: 40, height: 40})
     options.model.on('change:energy', function(){
       this.enabled = options.predicate()
       if( this.enabled ){
