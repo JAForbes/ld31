@@ -50,12 +50,13 @@ Models.Ship = Backbone.Model.extend({
     if(this.energy == 0) {
       return 'charge'
     }
-    if(this.health == 1 ){
-      return 'shield'
-    }
     if(other.health == 1) {
       return 'shoot'
     }
+    if(this.health == 1 ){
+      return 'shield'
+    }
+
     return _.sample(['charge','shoot','shield'])
   },
 

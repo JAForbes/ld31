@@ -26,8 +26,10 @@ Views.World = Backbone.View.extend({
 
       views.ship1.render()
       views.ship2.render()
-    })
 
+
+
+    })
 
     this.$el.append(views.choices.el)
     this.$el.css({
