@@ -7,7 +7,7 @@ Views.Ship = Backbone.View.extend({
     this.loadImages()
 
 
-    this.on('imagesLoaded',function(){ this.render(options.model)},this)
+    this.on('imagesLoaded',function(){ this.render() },this)
   },
 
   loadImages: function(){

@@ -22,8 +22,6 @@ Views.World = Backbone.View.extend({
       models.ship1.stateChange()
       models.ship2.stateChange()
 
-      views.ship1.render()
-      views.ship2.render()
     })
 
 
@@ -31,7 +29,6 @@ Views.World = Backbone.View.extend({
 
     models.ship1.on('dead', function(){ console.log('Computer Wins') })
     models.ship2.on('dead', function(){ console.log('You Win') })
-
 
 
   },

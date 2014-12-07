@@ -6,7 +6,8 @@ Models.Ship = Backbone.Model.extend({
   defaults: {
     health: 6,
     energy: 3,
-    damaged: false
+    damaged: false,
+    state: 'idle'
   },
   initialize: function(options){
     this.other = options.other;

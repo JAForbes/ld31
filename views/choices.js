@@ -24,7 +24,6 @@ Views.Choice = Backbone.View.extend({
     this.enabled = true;
 
     options.model.on('change:energy', function(){
-      console.log('enable/disable',options.model.energy)
       this.enabled = options.predicate()
       if( this.enabled ){
         this.$el.removeClass( 'disabled' )
