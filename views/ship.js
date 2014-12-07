@@ -5,11 +5,9 @@ Views.Ship = Backbone.View.extend({
 
   initialize: function(options){
     this.loadImages()
-    options.model.on('change:state',function(ship){
-      this.render(ship.get('state'))
-    },this)
 
-    this.on('imagesLoaded',function(){ this.render('idle')},this)
+
+    this.on('imagesLoaded',function(){ this.render(options.model)},this)
   },
 
   loadImages: function(){
@@ -28,9 +26,10 @@ Views.Ship = Backbone.View.extend({
 
   },
 
-  render: function(state){
+  render: function(){
     var con = this.el.getContext('2d')
-
+    var ship = this.model;
+    var state = ship.state;
     this.el.width = this.images.idle.width/4
     this.el.height = this.images.idle.height/4
     con.scale(0.25,0.25)
@@ -45,8 +44,8 @@ Views.Ship = Backbone.View.extend({
     } else if ( state == 'shoot') {
       con.drawImage( this.images.idle,0,0 )
       con.drawImage( this.images.shoot,0,0 )
-    } else if ( state == 'damage') {
-      con.drawImage( this.images.idle,0,0 )
+    }
+    if ( ship.damaged ) {
       con.drawImage( this.images.damage,0,0 )
     }
 

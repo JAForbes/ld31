@@ -1,11 +1,17 @@
 Views.Choices = Backbone.View.extend({
   initialize: function(options){
+    var hasEnergy = function() {
+      return options.model.energy > 0
+    }
+    var always = function() { return true }
+
     this.subViews = [
-      this.charge = new Views.Choice({ bus: this, text: 'charge' }),
-      this.shield = new Views.Choice({ bus: this, text: 'shield' }),
-      this.shoot = new Views.Choice({ bus: this, text: 'shoot' })
+      this.charge = new Views.Choice({ model: options.model, bus: this, text: 'charge' , predicate: always }),
+      this.shield = new Views.Choice({ model: options.model, bus: this, text: 'shield' , predicate: hasEnergy }),
+      this.shoot = new Views.Choice({ model: options.model, bus: this, text: 'shoot', predicate: hasEnergy })
     ]
     _.map(this.subViews, function(view){ this.$el.append(view.el)}, this )
+
   }
 })
 
@@ -15,8 +21,22 @@ Views.Choice = Backbone.View.extend({
 
   initialize: function(options){
     this.el.innerText = options.text;
+    this.enabled = true;
+
+    options.model.on('change:energy', function(){
+      console.log('enable/disable',options.model.energy)
+      this.enabled = options.predicate()
+      if( this.enabled ){
+        this.$el.removeClass( 'disabled' )
+      } else {
+        this.$el.addClass('disabled')
+      }
+    },this)
     this.el.onclick = _.bind(function(){
-      options.bus.trigger( 'choice', options.text )
+      if( this.enabled ) {
+        options.bus.trigger( 'choice', this, options.text )
+      }
     },this)
   },
+
 })
