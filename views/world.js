@@ -65,10 +65,13 @@ Views.World = Backbone.View.extend({
     views.end = new Views.End()
     this.$el.append(views.end.el)
     models.ship1.on('dead', function(){
+      localStorage.setItem('losses', (localStorage.getItem('losses')*1)+1 )
+
       views.end.render('Computer Wins!')
       lose.play()
     })
     models.ship2.on('dead', function(){
+      localStorage.setItem('wins', (localStorage.getItem('wins')*1)+1 )
       views.end.render('You Win!')
       win.play()
 

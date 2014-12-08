@@ -3,17 +3,22 @@ Views.End = Backbone.View.extend({
 
   initialize: function(){
     this.$el.css({ width: '100', height: '400', textAlign: 'center'})
-
-
   },
 
   render: function(message){
     var message = 'You Win!'
 
     var retry = 'Try Again?'
+    var wins = localStorage.getItem('wins')*1
+    var losses = localStorage.getItem('losses')*1
+    var total = wins+losses;
+    var winRatio = wins/total
+
+    var statistics = "Win Ratio: "+winRatio.toFixed('2')+'%'
 
     this.el.innerHTML = [
     '<p>',message,'</p>',
+    '<p>',statistics,'</p>',
     '<p class="retry">Try Again?</p>',
     ].join('')
 
