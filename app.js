@@ -33,4 +33,4 @@ loop = function(){
 music.play()
 loop()
 
-$('body').append('<h1>Game Name</h1>')
+$('body').append('<h1>Terra</h1>')

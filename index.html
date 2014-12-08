@@ -4,12 +4,17 @@
   font-family: 'Venus Rising'; /*a name to be used later*/
   src: url('font/venus rising rg.ttf'); /*URL to font*/
 }
+@font-face {
+  font-family: 'PCap'; /*a name to be used later*/
+  src: url('font/PCap Terminal.otf'); /*URL to font*/
+}
 
 body {
   margin: 0;
   background-color: #222;
   color: white;
-  font-family: Helvetica;
+  font-family: PCap;
+  font-size: 1.5em;
 }
 h1 {
   font-family: 'Venus Rising';
@@ -27,6 +32,9 @@ h1 {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+}
+.choice {
+  color: #82ffe2;
 }
 .disabled {
   color: grey;
