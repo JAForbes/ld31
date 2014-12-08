@@ -26,12 +26,16 @@ Views.Choice = Backbone.View.extend({
     this.enabled = true;
     this.$el.css({ width: 40, height: 40})
     options.model.on('change:energy', function(){
-      this.enabled = options.predicate()
-      if( this.enabled ){
-        this.$el.removeClass( 'disabled' )
-      } else {
-        this.$el.addClass('disabled')
-      }
+      var that = this;
+      _.defer(function(){
+        that.enabled = options.predicate() && models.ship1.health > 0 && models.ship2.health > 0
+        if( that.enabled ){
+          that.$el.removeClass( 'disabled' )
+        } else {
+          that.$el.addClass('disabled')
+        }
+      })
+
     },this)
     this.el.onclick = _.bind(function(){
       if( this.enabled ) {
