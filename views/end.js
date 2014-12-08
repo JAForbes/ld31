@@ -3,7 +3,7 @@ Views.End = Backbone.View.extend({
 
   initialize: function(){
     this.$el.css({ width: '100', height: '400', textAlign: 'center'})
-    this.render()
+
 
   },
 
