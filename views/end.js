@@ -2,7 +2,7 @@ Views.End = Backbone.View.extend({
   className: 'end X',
 
   initialize: function(){
-    this.$el.css({ width: '100', height: '400', textAlign: 'center'})
+    this.$el.css({ width: '400', height: '400', textAlign: 'center'})
   },
 
   render: function(message){
