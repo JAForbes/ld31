@@ -25,6 +25,15 @@ Views.World = Backbone.View.extend({
     this.$el.append( views.ship1.el )
     this.$el.append( views.ship2.el )
 
+    models.ship1.on('change:damaged',function(ship,damaged){
+
+      if(damaged) {
+        console.log('flash screen')
+        //flash the screen
+        $('body').css({background: 'white'})
+        _.delay( function(){$('body').css({background: '' })},100 )
+      }
+    })
 
     views.choices = new Views.Choices({ model: models.ship1 })
 
