@@ -33,7 +33,7 @@ loop = function(){
 music.play()
 loop()
 
-$('body').append('<h1>Terra</h1>')
+$('.world').append('<h1>Terra</h1>')
 
 localStorage.setItem('losses', localStorage.getItem('losses') || 0 )
 localStorage.setItem('wins', localStorage.getItem('wins') || 0 )

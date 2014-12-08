@@ -6,7 +6,6 @@ Views.End = Backbone.View.extend({
   },
 
   render: function(message){
-    var message = 'You Win!'
 
     var retry = 'Try Again?'
     var wins = localStorage.getItem('wins')*1
