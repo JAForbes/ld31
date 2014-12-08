@@ -56,8 +56,11 @@ Models.Ship = Backbone.Model.extend({
     if(this.health == 1 ){
       return 'shield'
     }
-
+    if(this.health < 2 && this.energy > 1){
+      return _.sample(['shoot','shield'])
+    }
     return _.sample(['charge','shoot','shield'])
+
   },
 
   stateChange: function(){
@@ -81,7 +84,7 @@ Models.Ship = Backbone.Model.extend({
       this.energy++
     }
 
-    if( this.health < 0) {
+    if( this.health < 1) {
       this.trigger('dead')
     }
   },

@@ -7,11 +7,26 @@ Views.Ship = Backbone.View.extend({
     this.loadImages()
 
 
+
     this.shakes = 0;
     this.model.on('change:damaged', function(model){
-      if( model.damaged ) { this.shakes = 40 }
+      if( model.damaged ) { this.shakes = 70 }
     },this)
     this.on('imagesLoaded',function(){ this.render() },this)
+
+    this.model.on('change:state', function(model,state){
+      var snd = options.sounds[state]
+
+      if(snd){
+        snd.play()
+      }
+    })
+
+    this.model.on('change:damaged', function(model,damaged){
+      if(damaged){
+        damage.play()
+      }
+    })
   },
 
   update: function(i){

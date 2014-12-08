@@ -6,8 +6,22 @@ Views.World = Backbone.View.extend({
     models.ship2 = new Models.Ship({ name: 'ship2' });
     models.ship1.other = models.ship2
     models.ship2.other = models.ship1
-    views.ship2 = new Views.Ship({ model : models.ship2 , className: 'NE'}).on('imagesLoaded',this.allImagesLoaded,this)
-    views.ship1 = new Views.Ship({ model : models.ship1 , className: 'SW' }).on('imagesLoaded',this.allImagesLoaded,this)
+    views.ship2 = new Views.Ship({
+      model : models.ship2 , className: 'NE',
+      sounds: {
+        charge: charge2,
+        shoot: shoot2,
+        shield: shield
+      }
+    }).on('imagesLoaded',this.allImagesLoaded,this)
+    views.ship1 = new Views.Ship({
+      model : models.ship1 , className: 'SW',
+      sounds: {
+        charge: charge1,
+        shoot: shoot1,
+        shield: shield
+      }
+    }).on('imagesLoaded',this.allImagesLoaded,this)
     this.$el.append( views.ship1.el )
     this.$el.append( views.ship2.el )
 
@@ -29,6 +43,8 @@ Views.World = Backbone.View.extend({
 
 
 
+
+
     })
 
     this.$el.append(views.choices.el)
@@ -38,8 +54,14 @@ Views.World = Backbone.View.extend({
       position: 'absolute'
     })
 
-    models.ship1.on('dead', function(){ console.log('Computer Wins') })
-    models.ship2.on('dead', function(){ console.log('You Win') })
+    models.ship1.on('dead', function(){
+      lose.play()
+      console.log('Computer Wins')
+    })
+    models.ship2.on('dead', function(){
+      win.play()
+      console.log('You Win')
+    })
 
 
   },
