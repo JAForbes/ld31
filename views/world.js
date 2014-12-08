@@ -28,7 +28,6 @@ Views.World = Backbone.View.extend({
     models.ship1.on('change:damaged',function(ship,damaged){
 
       if(damaged) {
-        console.log('flash screen')
         //flash the screen
         $('body').css({background: 'white'})
         _.delay( function(){$('body').css({background: '' })},100 )
@@ -63,13 +62,16 @@ Views.World = Backbone.View.extend({
       position: 'absolute'
     })
 
+    views.end = new Views.End()
+    this.$el.append(views.end.el)
     models.ship1.on('dead', function(){
+      views.end.render('Computer Wins!')
       lose.play()
-      console.log('Computer Wins')
     })
     models.ship2.on('dead', function(){
+      views.end.render('You Win!')
       win.play()
-      console.log('You Win')
+
     })
 
 

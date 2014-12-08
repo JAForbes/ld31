@@ -7,18 +7,23 @@ Views.End = Backbone.View.extend({
 
   },
 
-  render: function(){
+  render: function(message){
     var message = 'You Win!'
-    var statistics = "Your win ratio is 0%"
+
     var retry = 'Try Again?'
-    var menu = 'Main Menu'
 
     this.el.innerHTML = [
     '<p>',message,'</p>',
-    '<p>',statistics,'</p>',
-    '<p class="retry">',retry,'</p>',
-    '<p class="menu">',menu,'</p>',
+    '<p class="retry">Try Again?</p>',
     ].join('')
+
+    var el = this.el;
+    this.$('.retry').one('click',function(){
+      models.ship1.set( Models.Ship.prototype.defaults )
+      models.ship2.set( Models.Ship.prototype.defaults )
+
+      el.innerText = ''
+    })
   }
 
 })
